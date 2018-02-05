@@ -18,7 +18,7 @@ router.post('/adduser', (req, res) => {
   const newUser = req.body
   db.addUser(newUser) 
     .then(() => {
-      return res.status(200).send({})
+       res.status(200).send({})
     })
   
   .catch(err => {
@@ -36,5 +36,6 @@ router.get('/:id', (req, res) => {
       res.status(500).send('DATABASE ERROR: ' + err.message)
     })
 })
+
 
 module.exports = router

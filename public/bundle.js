@@ -25652,6 +25652,8 @@ var _superagent2 = _interopRequireDefault(_superagent);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -25670,6 +25672,8 @@ var Profile = function (_React$Component) {
       name: '',
       email: ''
     };
+    _this.handleChange = _this.handleChange.bind(_this);
+    _this.handleClick = _this.handleClick.bind(_this);
     return _this;
   }
 
@@ -25687,6 +25691,16 @@ var Profile = function (_React$Component) {
           email: res.body.user.email
         });
       });
+    }
+  }, {
+    key: 'handleChange',
+    value: function handleChange(evt) {
+      this.setState(_defineProperty({}, evt.target.name, evt.target.value));
+    }
+  }, {
+    key: 'handleClick',
+    value: function handleClick(evt) {
+      // similar to add user?
     }
   }, {
     key: 'render',
@@ -25713,6 +25727,32 @@ var Profile = function (_React$Component) {
           ' ',
           this.state.email,
           ' '
+        ),
+        _react2.default.createElement(
+          'h2',
+          null,
+          'Edit data'
+        ),
+        _react2.default.createElement(
+          'form',
+          null,
+          _react2.default.createElement(
+            'label',
+            null,
+            'Name: ',
+            _react2.default.createElement('input', { name: 'name', onChange: this.handleChange })
+          ),
+          _react2.default.createElement(
+            'label',
+            null,
+            'Email: ',
+            _react2.default.createElement('input', { name: 'email', onChange: this.handleChange })
+          ),
+          _react2.default.createElement(
+            'button',
+            { type: 'button', onClick: this.handleClick },
+            'Update'
+          )
         )
       );
     }

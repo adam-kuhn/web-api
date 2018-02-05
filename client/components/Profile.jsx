@@ -8,6 +8,8 @@ class Profile extends React.Component {
       name: '',
       email: ''
     }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
  
   componentDidMount () {
@@ -22,6 +24,15 @@ class Profile extends React.Component {
         })
       })
   }
+  handleChange (evt) {
+    this.setState({
+      [evt.target.name]: evt.target.value
+    })
+  }
+
+  handleClick (evt) {
+    // similar to add user?
+  }
 
   render () {
     // commented out works, but wanted to try the above code
@@ -34,6 +45,16 @@ class Profile extends React.Component {
       <div>
         <h1> {this.state.name} </h1>
         <h3> {this.state.email} </h3>
+        <h2>Edit data</h2>
+        <form>
+          <label>
+          Name: <input name='name' onChange={this.handleChange} />
+          </label>
+          <label>
+          Email: <input name='email' onChange={this.handleChange} />
+          </label>
+          <button type='button' onClick={this.handleClick}>Update</button>
+        </form>
       </div>
     )
   }
