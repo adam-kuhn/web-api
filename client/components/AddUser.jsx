@@ -45,7 +45,6 @@ class AddUser extends React.Component {
           <button type='button' onClick={this.handleClick}
  >Add User</button>
         </form>
-        <Link to='/users'>User List</Link>
       </div>
     )
   }
