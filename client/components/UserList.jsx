@@ -10,16 +10,6 @@ class UserList extends React.Component {
     }
   }
 
-  // handleClick (e) {
-  //   request
-  //     .post('/users')
-  //     .set('Content-Type', 'application/json')
-  //     .send(this.state)
-
-  //     .then(() => {
-  //       console.log(this.state)
-  //     })
-  // }
   render () {
     return (
       <ul>

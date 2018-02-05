@@ -38,6 +38,7 @@ class App extends React.Component {
             <Route exact path='/users' render={() => {
               return <UserList users={this.state.users} />
             }} />
+            {/* switch return only the first matching route rather than all mathching routes */}
             <Switch>
               <Route path='/users/adduser' render={() => {
                 return <AddUser refresh={this.refreshUserList} />

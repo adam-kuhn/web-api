@@ -24,6 +24,7 @@ class Profile extends React.Component {
   }
 
   render () {
+    // commented out works, but wanted to try the above code
     // const userId = Number(this.props.match.params.id)
     // let user = this.props.users.find(user => {
     //   return user.id === userId
