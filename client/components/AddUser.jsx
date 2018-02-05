@@ -1,5 +1,6 @@
 import React from 'react'
 import request from 'superagent'
+import {Link} from 'react-router-dom'
 
 class AddUser extends React.Component {
   constructor (props) {
@@ -13,7 +14,7 @@ class AddUser extends React.Component {
   }
   handleChange (evt) {
     this.setState({
-      [evt.target.name]: evt.target.value
+      [evt.target.name]: evt.target.value,
     })
   }
 
@@ -24,7 +25,8 @@ class AddUser extends React.Component {
       .send(this.state)
       .then(() => {
         this.props.refresh()
-      })
+        // this.props.history.push('/users')
+        })
   }
 
   render () {
@@ -32,16 +34,22 @@ class AddUser extends React.Component {
       <div>
         <form>
           <div>
-          Name: <input name='name' />
-            <br/>
-          email: <input name='email' />
+            Name: <input name='name' 
+              onChange={this.handleChange} />
           </div>
-          <button type='button' >Add User</button>
+            <br/>
+            <div>
+            email: <input name='email' 
+              onChange={this.handleChange} />
+          </div>
+          <button type='button' onClick={this.handleClick}
+ >Add User</button>
         </form>
+        <Link to='/users'>User List</Link>
       </div>
     )
   }
 }
 export default AddUser
-// onChange={this.handleChange}
-// onClick={this.handleClick}
+
+

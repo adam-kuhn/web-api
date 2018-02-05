@@ -14,6 +14,18 @@ router.get('/', (req, res) => {
     })
 })
 
+router.post('/adduser', (req, res) => {
+  const newUser = req.body
+  db.addUser(newUser) 
+    .then(() => {
+      return res.status(200).send({})
+    })
+  
+  .catch(err => {
+    res.status(500).send('DATABASE ERROR : ' + err.message)
+  })
+})
+
 router.get('/:id', (req, res) => {
   const id = Number(req.params.id)
   db.getUser(id)
