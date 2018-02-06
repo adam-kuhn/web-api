@@ -11,7 +11,6 @@ class Profile extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
   }
- 
   componentDidMount () {
     const userId = this.props.match.params.id
     request
@@ -37,6 +36,7 @@ class Profile extends React.Component {
       .set('Content-Type', 'application/json')
       .send(this.state)
       .then(() => {
+        this.props.history.push('/users')
         this.props.refresh()
       })
   }
