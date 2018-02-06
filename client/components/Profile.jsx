@@ -31,7 +31,14 @@ class Profile extends React.Component {
   }
 
   handleClick (evt) {
-    // similar to add user?
+    const userId = this.props.match.params.id
+    request
+      .put('/users/' + userId)
+      .set('Content-Type', 'application/json')
+      .send(this.state)
+      .then(() => {
+        this.props.refresh()
+      })
   }
 
   render () {

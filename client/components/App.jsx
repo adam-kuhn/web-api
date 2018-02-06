@@ -45,7 +45,7 @@ class App extends React.Component {
               }} />
 
               <Route path='/users/:id' render={(props) => {
-                return <Profile users={this.state.users} {...props} />
+                return <Profile users={this.state.users} refresh={this.refreshUserList} {...props} />
               }}/>
             </Switch>
 

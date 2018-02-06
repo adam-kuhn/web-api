@@ -20740,7 +20740,7 @@ var App = function (_React$Component) {
                   return _react2.default.createElement(_AddUser2.default, { refresh: _this3.refreshUserList });
                 } }),
               _react2.default.createElement(_reactRouterDom.Route, { path: '/users/:id', render: function render(props) {
-                  return _react2.default.createElement(_Profile2.default, _extends({ users: _this3.state.users }, props));
+                  return _react2.default.createElement(_Profile2.default, _extends({ users: _this3.state.users, refresh: _this3.refreshUserList }, props));
                 } })
             )
           )
@@ -25700,7 +25700,12 @@ var Profile = function (_React$Component) {
   }, {
     key: 'handleClick',
     value: function handleClick(evt) {
-      // similar to add user?
+      var _this3 = this;
+
+      var userId = this.props.match.params.id;
+      _superagent2.default.put('/users/' + userId).set('Content-Type', 'application/json').send(this.state).then(function () {
+        _this3.props.refresh();
+      });
     }
   }, {
     key: 'render',
